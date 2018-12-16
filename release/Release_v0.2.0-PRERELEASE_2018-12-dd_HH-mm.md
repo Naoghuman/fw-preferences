@@ -1,4 +1,4 @@
-Welcome to `Fw-Preferences` with the new release `x.y.z`.
+Welcome to `Fw-Preferences` with the new release `0.2.0-PRERELEASE`.
 
 The framework `Fw-Preferences` let the developer easily configure `Settingsdialogs` 
 in a [JavaFX] application.
