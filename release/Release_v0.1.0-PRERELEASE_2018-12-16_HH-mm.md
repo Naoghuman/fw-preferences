@@ -27,6 +27,7 @@ TODO
 
 #### Documentation
 #8 [doc] Add folder 'releases' with template.
+#3 [doc] Add badges from img.shield.io to the ReadMe.md.
 
 
 
