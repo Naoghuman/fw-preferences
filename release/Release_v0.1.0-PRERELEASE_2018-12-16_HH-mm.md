@@ -11,11 +11,12 @@ TODO
 
 
 #### Feature
+#5 [pom] Tweak the `pom.xml` to fit the necessities from the project.
+#1 [fw] Create basic framework structure.
 
 
 
 #### Enhancement
-#1 [fw] Create basic framework structure.
 
 
 
