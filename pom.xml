@@ -9,7 +9,7 @@
     <name>Fw-Preferences</name>
     <url>https://github.com/Naoghuman/fw-preferences.git</url>
     
-    <description>TODO</description>
+    <description>The framework `Fw-Preferences` let the developer easily configure `Settingsdialogs` in a [JavaFX] application.</description>
     
     <developers>
         <developer>

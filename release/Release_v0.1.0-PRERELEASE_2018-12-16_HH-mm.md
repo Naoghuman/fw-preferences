@@ -1,6 +1,7 @@
 Welcome to `Fw-Preferences` with the new release `0.1.0-PRERELEASE`.
 
-TODO
+The framework `Fw-Preferences` let the developer easily configure `Settingsdialogs` 
+in a [JavaFX] application.
 
 
 
@@ -28,6 +29,7 @@ TODO
 #### Documentation
 #8 [doc] Add folder 'releases' with template.
 #7 [doc] Create basic ReadMe structure.
+#6 [doc] Add description to the GitHub project.
 #4 [doc] Create basic concept for the framework.
 #3 [doc] Add badges from img.shield.io to the ReadMe.md.
 
