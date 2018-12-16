@@ -28,6 +28,7 @@ TODO
 #### Documentation
 #8 [doc] Add folder 'releases' with template.
 #7 [doc] Create basic ReadMe structure.
+#4 [doc] Create basic concept for the framework.
 #3 [doc] Add badges from img.shield.io to the ReadMe.md.
 
 
