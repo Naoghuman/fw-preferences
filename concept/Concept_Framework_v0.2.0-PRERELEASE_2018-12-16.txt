@@ -1,0 +1,122 @@
+--------------------------------------------------------------------------------
+CONCEPT Framework
+--------------------------------------------------------------------------------
+INTENTION
+Inspired by 'PreferencesFX' I want to implement a similar framework for my libraries 
+and applications.
+
+The main goal is that the framework 'Fw-Preferences' allowed the developer to 
+create and managed easily his Preferences-, Options-, Settings-Dialogs in context 
+from my libraries (Naoghuman).
+
+For example in this framework will be included:
+- Lib-Logger allowed to log easily log-events.
+- Lib-Preferences allowed to store and access easily simple data to a .properties file.
+- Lib-Action allowed to managed action-events.
+- ...
+
+--------------------------------------------------------------------------------
+v0.2.0
+ - Prototyping the model MainSection
+ - Prototyping the JSON reader and writer.
+ - Prototyping the basic layout from a 'PreferencesDialog'.
+    - Load different MainSection in Navigation.
+    - Search in Navigation.
+    - Double click on a MainSection in the Navigation opens the MainSection in 
+      the MainSectionArea.
+ - Prototyping the basic layout from the application 'PreferencesConfigurator'.
+
+--------------------------------------------------------------------------------
+SPECIFICATION
+
+FRAMEWORK
+PreferencesDialog
+ - The developer can defined over the different builders the components from the dialog.
+ - On the left side from the dialog a Navigationtree will be shown (titles from the 
+   MainSections). The elements in the tree can be searched. Click on a title opens 
+   the MainSection on the right side.
+ - On the right side the choosen MainSection and all contained SubSections with 
+   the configured Settings components are shown.
+ - The developer have the option to tweak the appearence from the dialog and all 
+   components with css.
+ - The framework offer a default css file which can be used from the developer 
+   as a template to create own css styles.
+ - Settings value will be bind? How to reflect changes?
+ - Save settings like in PreferencesFX? SRAH-128
+ - Undo, Redo?
+
+BUILDERS
+PreferencesDialogBuilder
+ - Main point from this framework which allowed to create a dialog with the given 
+   configuration.
+ - create()
+ - title()
+ - categories()
+ - build(): Dialog
+
+PreferencesMainSectionBuilder
+ - A MainSection will shown in the navigation on the left side with the title.
+   Click on the title opens the MainSection as a view which shows all SubSections.
+ - A MainSection can have 0-n other MainSections.
+ - A MainSection can have 0-n SubSections.
+ - The description (if defined) is always the first child from a MainSection.
+ - create()
+ - title(), description(), mainSections(), subSections()
+ - build(): VBox on the right, Label on the left
+
+PreferencesSubSectionBuilder
+ - A SubSection is primary a group from elements which allowed to change settings.
+ - A SubSection can have 0-n Settings.
+ - The description (if defined) is always the first child from a SubSection.
+ - create()
+ - title(), description(), elements()
+ - build(): VBox
+
+PreferencesSettingBuilder
+ - HOW the changes will reflect in the application? Binding?
+ - A Setting let the user to change the specific setting.
+ - There are predefined Settings (TextField, CheckBox...)
+ - Its also possible to add own Settings.
+ - The tooltip (if defined) will be shown by 'mouse-over' from the title.
+ - create()
+ - title(), tooltip(), setting(), defaultValue()...
+ - build(): HBox
+
+MODELS
+MainSection
+ - title
+ - description
+ - mainSections
+ - subSections
+
+SubSection
+ - title
+ - description
+ - settings
+
+Setting
+ - title
+ - tooltip
+
+RENDERERS
+ - Needed?
+ - Have PreferencesSettingBuilder.
+
+--------------------------------------------------------------------------------
+LINKS
+ - ...
+
+--------------------------------------------------------------------------------
+EXTRAS
+ - ...
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
