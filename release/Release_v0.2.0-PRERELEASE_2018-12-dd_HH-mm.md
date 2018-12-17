@@ -12,6 +12,7 @@ in a [JavaFX] application.
 
 
 #### Feature
+#10 [api] Create the new model class 'PreferencesCategory'.
 
 
 
