@@ -15,6 +15,7 @@ in a [JavaFX] application.
 #19 [test] Create unittests for DefaultPreferencesJsonWriter.
 #17 [internal] Create new class DefaultPreferencesJsonReader to read a PreferencesCategory from a JSON file.
 #16 [internal] Create new class DefaultPreferencesJsonWriter to write a PreferencesCategory to a JSON file.
+#12 [test] Create unittests for DefaultPreferencesJsonReader.
 #10 [api] Create the new model class 'PreferencesCategory'.
 
 
