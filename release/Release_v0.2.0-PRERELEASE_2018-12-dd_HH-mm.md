@@ -12,6 +12,7 @@ in a [JavaFX] application.
 
 
 #### Feature
+#17 [internal] Create new class DefaultPreferencesJsonReader to read a PreferencesCategory from a JSON file.
 #16 [internal] Create new class DefaultPreferencesJsonWriter to write a PreferencesCategory to a JSON file.
 #10 [api] Create the new model class 'PreferencesCategory'.
 
