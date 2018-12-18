@@ -19,6 +19,7 @@ package com.github.naoghuman.fw.preferences.internal;
 import com.github.naoghuman.fw.preferences.core.PreferencesCategory;
 import com.github.naoghuman.fw.preferences.core.PreferencesGroup;
 import com.github.naoghuman.fw.preferences.core.PreferencesJson;
+import com.github.naoghuman.fw.preferences.core.PreferencesSetting;
 import java.io.File;
 import java.util.List;
 import java.util.Optional;
@@ -66,10 +67,18 @@ public class DefaultPreferencesJsonReaderTest implements PreferencesJson {
         pcs.add(pc2);
         pc.setCategories(pcs);
         
+        
         List<PreferencesGroup> pgs = FXCollections.observableArrayList();
         PreferencesGroup pg = new PreferencesGroup();
         pg.setTitle("root-group-title-100a");
         pg.setDescription("root-group-description-100a");
+        
+        List<PreferencesSetting> pss = FXCollections.observableArrayList();
+        PreferencesSetting ps = new PreferencesSetting();
+        ps.setTitle("setting-title-100a-1");
+        ps.setDescription("setting-description-100a-1");
+        pss.add(ps);
+        pg.setSettings(pss);
         pgs.add(pg);
         pc.setGroups(pgs);
         
@@ -85,6 +94,7 @@ public class DefaultPreferencesJsonReaderTest implements PreferencesJson {
         assertEquals(2, result.get().getCategories().size());
         assertEquals(1, result.get().getGroups().size());
         assertEquals("root-group-title-100a", result.get().getGroups().get(0).getTitle());
+        assertEquals(1, result.get().getGroups().get(0).getSettings().size());
         
     }
     

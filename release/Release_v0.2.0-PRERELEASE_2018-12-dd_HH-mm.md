@@ -25,6 +25,7 @@ in a [JavaFX] application.
 #### Enhancement
 #25 [test] Extends the unittests for DefaultPreferencesJsonReader.
 #24 [test] Extends the unittests for DefaultPreferencesJsonWriter.
+#23 [test] Extends the unittests for the DefaultPreferencesJsonReader with PreferencesSettings.
 #22 [test] Extends the unittests for the DefaultPreferencesJsonWriter with PreferencesSettings.
 #21 [api] New attribut list from 'PreferencesGroup's into PreferencesCategory.
 
