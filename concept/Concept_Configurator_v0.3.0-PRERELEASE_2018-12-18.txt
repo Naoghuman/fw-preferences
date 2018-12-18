@@ -1,0 +1,123 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+CONCEPT <Configurator>
+--------------------------------------------------------------------------------
+INTENTION
+With the 'PreferencesConfigurator' the developer can configure easily 'PreferencesDialogs'.
+The configuration can then saved as a JSON file.
+
+This JSON files can be loaded with the framework 'Fw-Preferences' in an application 
+or can be used as templates in the PreferencesConfigurator to create new ones.
+
+--------------------------------------------------------------------------------
+SPECIFICATION
+Gui
+ - Left   -> Action- and Componenten view
+ - Middle -> Navigation
+ - Right  -> PreferencesSettingArea
+ - What is with metadata like css?
+
+ActionView
+ - Save    -> Save the momentary configuration in existing JSON file or create a new one.
+ - SaveAs  -> Save the momentary configuration in a new JSON file.
+ - Load    -> Load an existing JSON file into the configurator.
+ - Reset   -> Resets the momentary configurations.
+ - Preview -> Opens a dialog and show the configuration as it is.
+ - About   -> Shows a about dialog.
+
+ComponentenView
+ - 'Category' -> Adds a Category to the selected element in the navigation.
+                 Can be the RootCategory or another Category.
+ - 'Group'    -> Adds a Group to a Category (not the RootCategory).
+ - 'Setting'  -> Adds a Setting to a Group.
+
+ - BooleanSetting -> 
+ - DoubleSetting  -> 
+ - IntegerSetting -> 
+ - RangeSetting   -> 
+ - StringSetting  -> 
+ - OwnSetting     -> 
+
+ - ColorSetting   -> 
+ - ListSetting    -> 
+ - CheckBoxSetting -> 
+ - ComboBoxSetting -> 
+ - TextAreaSetting -> 
+ - RadioButtonSetting ->
+
+Navigation
+ - Shows the added components.
+ - Click on a component show it (parent category) and prescrolled in the 
+   preferences-area.
+ - Have Movebuttons to change the order in the context from the parent node.
+
+PreferencesSettingArea
+ - Show a Category with all Groups and Settings.
+ - Categories in a Categorie want shown.
+
+--------------------------------------------------------------------------------
+LINKS
+ - ...
+
+--------------------------------------------------------------------------------
+EXTRAS
+Open
+ - How to bind the attributs in the JSON file after loading from the framework?
+ - How to update the changed binded attributs with the component changes?
+ - Metadata in the configuration.
+    - CSS for the dialog, anchorpane.
+    - Title for the dialog.
+    - size, position, modal...
+ - How to show the information in the navigation?
+    - We have categories, groups and settings.
+    - Show only categories and groups without settings?
+ - New interface 'Attributes'?
+    - title, index, description (can be also be used as a tooltip)
+ - How can a OwnSetting used?
+
+Conventions
+ - Categories will shown over the groups.
+ - A Category shows all Groups and Settings.
+ - No Categories in a Categorie want shown.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+v0.3.0-PRERELEASE
+
+New model PreferencesMetaData
+ - This model holds the metadata from a PreferencesDialog. Like the title from 
+   the dialog, the used css-style...
+ - Normaly a PreferencesMetaData won't be shown in the navigation expected in 
+   PreferencesConfigurator, where it can be tweaked.
+ - The added PreferencesCategories will then be shown as first elements in the 
+   navigation.
+
+New feature
+ - Generation from an additional .properties file
+ - During the export from the configuration as a JSON file the developer have also 
+   the option to create an additional .properties file with the same name like the 
+   JSON file for the i18n.
+ - In this file all used key/values from the defined configuration are added, so 
+   the file can be used for the final .properties files as a support file.
+
+Gui layout
+ a) Which points for the gui-layout should be implemented into v0.3.0-PRERELEASE?
+ b) about button shows about dialog with about-points from me.
+     - Added above.
+
+Idea
+ - Can the configurator used to create an About-Dialog?
+    - Perhaps with OwnSettings?
+    - Option to hide the navigation.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

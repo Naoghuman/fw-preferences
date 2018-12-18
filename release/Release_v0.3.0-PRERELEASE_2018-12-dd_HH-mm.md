@@ -27,6 +27,7 @@ in a [JavaFX] application.
 #### Documentation
 #33 [doc] Update the sections 'Requirements' in the ReadMe.
 #32 [doc] Update the project description.
+#31 [doc] Extend the concept 'Configurator' to v0.3.0-PRERELEASE.
 
 
 
