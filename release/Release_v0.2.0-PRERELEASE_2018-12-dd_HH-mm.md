@@ -29,6 +29,7 @@ in a [JavaFX] application.
 
 
 #### Documentation
+#15 [doc] Create new concept 'PreferencesConfigurator'.
 #9 [doc] Extend the concept 'Framework' to v0.2.0.
 
 
