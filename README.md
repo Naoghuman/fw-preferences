@@ -68,6 +68,7 @@ Requirements<a name="Requirements" />
 * The framework [fw-preferences-0.1.0-PRERELEASE.jar](#Installation).
 
 In the library are following libraries registered as dependencies:
+* The library [gson-2.8.5.jar].
 * The library [lib-logger-0.6.0.jar](#Installation).
   * Included in `Lib-Logger` is the library [log4j-api-2.10.0.jar].
   * Included is `Lib-Logger` is the library [log4j-core-2.10.0.jar].
@@ -83,7 +84,7 @@ Installation<a name="Installation" />
     - Optional: To work better with [FXML] files in a [JavaFX] application 
       download the JavaFX [Scene Builder] supported by `Gluon`.
 * Choose your preferred IDE (e.g. [NetBeans], [Eclipse] or [IntelliJ IDEA]) for development.
-* Download or clone [Lib-Logger].
+* Optional download or clone [Lib-Logger].
 * Open the projects in your IDE and run them.
 
 
@@ -125,6 +126,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [Eclipse]:https://www.eclipse.org/
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[gson-2.8.5.jar]:https://github.com/google/gson
 [IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/fw-preferences/issues
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html

@@ -25,6 +25,7 @@ in a [JavaFX] application.
 
 
 #### Documentation
+#33 [doc] Update the sections 'Requirements' in the ReadMe.
 
 
 
