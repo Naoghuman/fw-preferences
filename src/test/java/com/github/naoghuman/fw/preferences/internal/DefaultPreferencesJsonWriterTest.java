@@ -17,14 +17,15 @@
 package com.github.naoghuman.fw.preferences.internal;
 
 import com.github.naoghuman.fw.preferences.core.PreferencesCategory;
+import com.github.naoghuman.fw.preferences.core.PreferencesGroup;
 import com.github.naoghuman.fw.preferences.core.PreferencesJson;
 import java.io.File;
 import java.util.List;
 import javafx.collections.FXCollections;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -64,7 +65,7 @@ public class DefaultPreferencesJsonWriterTest implements PreferencesJson {
     }
 
     @Test
-    public void testWriteWithMainSection() {
+    public void testWriteWithCategory() {
         String fileName = "test-write1.json";
         
         PreferencesCategory rootCategory = new PreferencesCategory();
@@ -77,11 +78,32 @@ public class DefaultPreferencesJsonWriterTest implements PreferencesJson {
     }
 
     @Test
-    public void testWriteWithMainSectionAndMainSections() {
+    public void testWriteWithCategoryAndGroup() {
+        String fileName = "test-write1a.json";
+        
+        PreferencesCategory rc = new PreferencesCategory();
+        rc.setTitle("root-category-title-1");
+        
+        List<PreferencesGroup> pgs = FXCollections.observableArrayList();
+        PreferencesGroup pg = new PreferencesGroup();
+        pg.setTitle("group-title-1");
+        pg.setDescription("group-description-1");
+        pgs.add(pg);
+        
+        rc.setGroups(pgs);
+        
+        DefaultPreferencesJsonWriter.write(fileName, rc);
+        
+        final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
+        assertTrue(file1.exists());
+    }
+
+    @Test
+    public void testWriteWithCategoryAndCategories() {
         String fileName = "test-write2.json";
         
-        PreferencesCategory rs = new PreferencesCategory();
-        rs.setTitle("root-category-title-2");
+        PreferencesCategory rc = new PreferencesCategory();
+        rc.setTitle("root-category-title-2");
         
         List<PreferencesCategory> pcs = FXCollections.observableArrayList();
         PreferencesCategory pc1 = new PreferencesCategory();
@@ -94,20 +116,53 @@ public class DefaultPreferencesJsonWriterTest implements PreferencesJson {
         pc2.setDescription("category-description-2");
         pcs.add(pc2);
         
-        rs.setCategories(pcs);
+        rc.setCategories(pcs);
         
-        DefaultPreferencesJsonWriter.write(fileName, rs);
+        DefaultPreferencesJsonWriter.write(fileName, rc);
         
         final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
         assertTrue(file1.exists());
     }
 
     @Test
-    public void testWriteWithMainSectionAndMainSectionsAndMainSection() {
+    public void testWriteWithCategoryAndCategoriesAndGroup() {
+        String fileName = "test-write2a.json";
+        
+        PreferencesCategory rc = new PreferencesCategory();
+        rc.setTitle("root-category-title-2");
+        
+        List<PreferencesCategory> pcs = FXCollections.observableArrayList();
+        PreferencesCategory pc1 = new PreferencesCategory();
+        pc1.setTitle("category-title-1");
+        pc1.setDescription("category-description-1");
+        pcs.add(pc1);
+        
+        PreferencesCategory pc2 = new PreferencesCategory();
+        pc2.setTitle("category-title-2");
+        pc2.setDescription("category-description-2");
+        
+        List<PreferencesGroup> pgs = FXCollections.observableArrayList();
+        PreferencesGroup pg = new PreferencesGroup();
+        pg.setTitle("group-title-2_1");
+        pg.setDescription("group-description-2_1");
+        pgs.add(pg);
+        pc2.setGroups(pgs);
+        pcs.add(pc2);
+        
+        rc.setCategories(pcs);
+        
+        DefaultPreferencesJsonWriter.write(fileName, rc);
+        
+        final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
+        assertTrue(file1.exists());
+    }
+
+    @Test
+    public void testWriteWithCategoryAndCategoriesAndCategory() {
         String fileName = "test-write3.json";
         
-        PreferencesCategory rs = new PreferencesCategory();
-        rs.setTitle("root-category-title-3");
+        PreferencesCategory rc = new PreferencesCategory();
+        rc.setTitle("root-category-title-3");
         
         List<PreferencesCategory> pcs = FXCollections.observableArrayList();
         PreferencesCategory pc1 = new PreferencesCategory();
@@ -128,9 +183,9 @@ public class DefaultPreferencesJsonWriterTest implements PreferencesJson {
         pc2.setCategories(pcs2);
         pcs.add(pc2);
         
-        rs.setCategories(pcs);
+        rc.setCategories(pcs);
         
-        DefaultPreferencesJsonWriter.write(fileName, rs);
+        DefaultPreferencesJsonWriter.write(fileName, rc);
         
         final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
         assertTrue(file1.exists());

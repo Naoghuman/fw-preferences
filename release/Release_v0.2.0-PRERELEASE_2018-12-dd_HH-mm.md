@@ -22,6 +22,7 @@ in a [JavaFX] application.
 
 
 #### Enhancement
+#24 [test] Extends the unittests for DefaultPreferencesJsonWriter.
 #21 [api] New attribut list from 'PreferencesGroup's into PreferencesCategory.
 
 
