@@ -17,15 +17,16 @@
 package com.github.naoghuman.fw.preferences.internal;
 
 import com.github.naoghuman.fw.preferences.core.PreferencesCategory;
+import com.github.naoghuman.fw.preferences.core.PreferencesGroup;
 import com.github.naoghuman.fw.preferences.core.PreferencesJson;
 import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -48,33 +49,43 @@ public class DefaultPreferencesJsonReaderTest implements PreferencesJson {
 
     @Test
     public void testRead() {
-        String fileName = "test-write100.json";
+        String fileName = "test-write100a.json";
         
-        PreferencesCategory rootSection = new PreferencesCategory();
-        rootSection.setTitle("root-category-title-100");
+        PreferencesCategory pc = new PreferencesCategory();
+        pc.setTitle("root-category-title-100a");
         
-        List<PreferencesCategory> cs = FXCollections.observableArrayList();
+        List<PreferencesCategory> pcs = FXCollections.observableArrayList();
         PreferencesCategory pc1 = new PreferencesCategory();
-        pc1.setTitle("category-title-100-1");
-        pc1.setDescription("category-description-100-1");
-        cs.add(pc1);
+        pc1.setTitle("category-title-100a-1");
+        pc1.setDescription("category-description-100a-1");
+        pcs.add(pc1);
         
         PreferencesCategory pc2 = new PreferencesCategory();
-        pc2.setTitle("category-title-100-2");
-        pc2.setDescription("category-description-100-2");
-        cs.add(pc2);
+        pc2.setTitle("category-title-100a-2");
+        pc2.setDescription("category-description-100a-2");
+        pcs.add(pc2);
+        pc.setCategories(pcs);
         
-        rootSection.setCategories(cs);
+        List<PreferencesGroup> pgs = FXCollections.observableArrayList();
+        PreferencesGroup pg = new PreferencesGroup();
+        pg.setTitle("root-group-title-100a");
+        pg.setDescription("root-group-description-100a");
+        pgs.add(pg);
+        pc.setGroups(pgs);
         
-        DefaultPreferencesJsonWriter.write(fileName, rootSection);
+        
+        DefaultPreferencesJsonWriter.write(fileName, pc);
         
         final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
         assertTrue(file1.exists());
         
         Optional<PreferencesCategory> result = DefaultPreferencesJsonReader.read(fileName);
         assertTrue(result.isPresent());
-        assertEquals("root-category-title-100", result.get().getTitle());
+        assertEquals("root-category-title-100a", result.get().getTitle());
         assertEquals(2, result.get().getCategories().size());
+        assertEquals(1, result.get().getGroups().size());
+        assertEquals("root-group-title-100a", result.get().getGroups().get(0).getTitle());
+        
     }
     
 }
