@@ -16,10 +16,8 @@
  */
 package com.github.naoghuman.fw.preferences.core;
 
-import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 
 /**
  *
@@ -27,9 +25,9 @@ import javafx.collections.FXCollections;
  * @version 0.2.0-PRERELEASE
  * @author Naoghuman
  */
-public final class PreferencesGroup implements PreferencesJson {
+public final class PreferencesSetting implements PreferencesJson {
     
-    public PreferencesGroup() {
+    public PreferencesSetting() {
         
     }
     
@@ -89,33 +87,14 @@ public final class PreferencesGroup implements PreferencesJson {
         return titleProperty;
     }
     // END  TITLE --------------------------------------------------------------
-    
-    // START  SETTINGS ---------------------------------------------------------
-    private List<PreferencesSetting> _settings = FXCollections.observableArrayList();
-
-    public List<PreferencesSetting> getSettings() {
-        return _settings;
-    }
-
-    public final void setSettings(final List<PreferencesSetting> settings) {
-        _settings.clear();
-        _settings.addAll(settings);
-    }
-    // END  SETTINGS -----------------------------------------------------------
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("PreferencesGroup [").append("\n");
+        sb.append("PreferencesSetting [").append("\n");
         
         sb.append("  ").append("title="      ).append(this.getTitle()      ).append(",\n");
         sb.append("  ").append("description=").append(this.getDescription()).append(",\n");
-        
-        
-        this.getSettings().stream()
-                .forEach((setting) -> {
-                    sb.append(setting.toString());
-                });
         
         sb.append("]");
         
