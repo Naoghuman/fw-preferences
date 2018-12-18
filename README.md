@@ -10,7 +10,8 @@ Fw-Preferences
 Intention
 ---
 
-TODO
+The framework `Fw-Preferences` let the developer easily configure varying `Settingsdialogs` 
+for a [JavaFX] application.
 
 
 
