@@ -102,6 +102,19 @@ public final class PreferencesCategory implements PreferencesJson {
         _categories.addAll(categories);
     }
     // END  CATEGORIES ---------------------------------------------------------
+    
+    // START  GROUPS -----------------------------------------------------------
+    private List<PreferencesGroup> _groups = FXCollections.observableArrayList();
+
+    public List<PreferencesGroup> getGroups() {
+        return _groups;
+    }
+
+    public final void setGroups(final List<PreferencesGroup> groups) {
+        _groups.clear();
+        _groups.addAll(groups);
+    }
+    // END  GROUPS -------------------------------------------------------------
 
     @Override
     public String toString() {
@@ -114,6 +127,11 @@ public final class PreferencesCategory implements PreferencesJson {
         this.getCategories().stream()
                 .forEach((category) -> {
                     sb.append(category.toString());
+                });
+        
+        this.getGroups().stream()
+                .forEach((group) -> {
+                    sb.append(group.toString());
                 });
         
         sb.append("]");

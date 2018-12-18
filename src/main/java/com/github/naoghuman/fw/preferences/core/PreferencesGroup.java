@@ -16,10 +16,8 @@
  */
 package com.github.naoghuman.fw.preferences.core;
 
-import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 
 /**
  *
@@ -89,19 +87,6 @@ public final class PreferencesGroup implements PreferencesJson {
         return titleProperty;
     }
     // END  TITLE --------------------------------------------------------------
-    
-    // START  CATEGORIES -------------------------------------------------------
-    private List<PreferencesGroup> _categories = FXCollections.observableArrayList();
-
-    public List<PreferencesGroup> getCategories() {
-        return _categories;
-    }
-
-    public final void setCategories(final List<PreferencesGroup> categories) {
-        _categories.clear();
-        _categories.addAll(categories);
-    }
-    // END  CATEGORIES ---------------------------------------------------------
 
     @Override
     public String toString() {
@@ -110,11 +95,6 @@ public final class PreferencesGroup implements PreferencesJson {
         
         sb.append("  ").append("title="      ).append(this.getTitle()      ).append(",\n");
         sb.append("  ").append("description=").append(this.getDescription()).append(",\n");
-        
-        this.getCategories().stream()
-                .forEach((category) -> {
-                    sb.append(category.toString());
-                });
         
         sb.append("]");
         

@@ -22,6 +22,7 @@ in a [JavaFX] application.
 
 
 #### Enhancement
+#21 [api] New attribut list from 'PreferencesGroup's into PreferencesCategory.
 
 
 
