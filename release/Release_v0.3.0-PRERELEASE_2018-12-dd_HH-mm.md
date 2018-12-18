@@ -12,6 +12,7 @@ in a [JavaFX] application.
 
 
 #### Feature
+#27 [api] Create new model 'PreferencesMetaData'.
 
 
 
