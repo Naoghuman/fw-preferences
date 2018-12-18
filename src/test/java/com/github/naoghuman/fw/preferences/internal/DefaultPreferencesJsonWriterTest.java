@@ -19,6 +19,7 @@ package com.github.naoghuman.fw.preferences.internal;
 import com.github.naoghuman.fw.preferences.core.PreferencesCategory;
 import com.github.naoghuman.fw.preferences.core.PreferencesGroup;
 import com.github.naoghuman.fw.preferences.core.PreferencesJson;
+import com.github.naoghuman.fw.preferences.core.PreferencesSetting;
 import java.io.File;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -81,18 +82,46 @@ public class DefaultPreferencesJsonWriterTest implements PreferencesJson {
     public void testWriteWithCategoryAndGroup() {
         String fileName = "test-write1a.json";
         
-        PreferencesCategory rc = new PreferencesCategory();
-        rc.setTitle("root-category-title-1");
+        PreferencesCategory pc = new PreferencesCategory();
+        pc.setTitle("root-category-title-1a");
         
         List<PreferencesGroup> pgs = FXCollections.observableArrayList();
         PreferencesGroup pg = new PreferencesGroup();
-        pg.setTitle("group-title-1");
-        pg.setDescription("group-description-1");
+        pg.setTitle("group-title-1a");
+        pg.setDescription("group-description-1a");
         pgs.add(pg);
         
-        rc.setGroups(pgs);
+        pc.setGroups(pgs);
         
-        DefaultPreferencesJsonWriter.write(fileName, rc);
+        DefaultPreferencesJsonWriter.write(fileName, pc);
+        
+        final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
+        assertTrue(file1.exists());
+    }
+
+    @Test
+    public void testWriteWithCategoryAndGroupAndSetting() {
+        String fileName = "test-write1b.json";
+        
+        PreferencesCategory pc = new PreferencesCategory();
+        pc.setTitle("root-category-title-1b");
+        
+        List<PreferencesGroup> pgs = FXCollections.observableArrayList();
+        PreferencesGroup pg = new PreferencesGroup();
+        pg.setTitle("group-title-1b");
+        pg.setDescription("group-description-1b");
+        
+        List<PreferencesSetting> pss = FXCollections.observableArrayList();
+        PreferencesSetting ps = new PreferencesSetting();
+        ps.setTitle("setting-title-1b");
+        ps.setDescription("setting-description-1b");
+        pss.add(ps);
+        pg.setSettings(pss);
+        
+        pgs.add(pg);
+        pc.setGroups(pgs);
+        
+        DefaultPreferencesJsonWriter.write(fileName, pc);
         
         final File file1 = new File(DEFAULT_PATH_TO_CONFIG_FOLDER + File.separator + fileName);
         assertTrue(file1.exists());
