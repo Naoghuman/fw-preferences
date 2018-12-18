@@ -6,8 +6,8 @@ in a [JavaFX] application.
 
 
 #### Summary
-* ...
-* ...
+* Add new models PreferencesCategory, -Group, Setting.
+* Extend the existing unittests to read and write the new models.
 
 
 
